@@ -15,12 +15,12 @@ import javafx.scene.layout.HBox;
 public class XOGame extends Application {
 
 	private static final String X_LABEL = "X", O_LABEL = "O";
-	private static final int X_TRUN = 0; // O_TRUN = 1;
+	private static final int X_TURN = 0; // O_TURN = 1;
 	private static final int MASK = 1;
 	private static final int WIDTH = 400, HEIGHT = 400;
 	private static final int N = 3;
 
-	private int current = X_TRUN;
+	private int current = X_TURN;
 	private Label[][] board;
 	private GridPane layout;
 	private Label statusLabel;
@@ -33,7 +33,7 @@ public class XOGame extends Application {
 		layout.setAlignment(Pos.CENTER);
 		populateLayout();
 
-		statusLabel = new Label(String.format("It's %c turn.", (current == X_TRUN) ? 'X' : 'O'));
+		statusLabel = new Label(String.format("It's %c turn.", (current == X_TURN) ? 'X' : 'O'));
 		statusLabel.setStyle("-fx-font-size: 30px; -fx-text-fill: white;");
 		statusLabel.setPadding(new Insets(10));
 
@@ -76,7 +76,7 @@ public class XOGame extends Application {
 		if (!xolabel.getText().equals(""))
 			return;
 
-		if (current == X_TRUN)
+		if (current == X_TURN)
 			xolabel.setText(X_LABEL);
 		else
 			xolabel.setText(O_LABEL);
@@ -94,7 +94,7 @@ public class XOGame extends Application {
 		}
 
 		current ^= MASK;
-		statusLabel.setText(String.format("It's %c turn.", (current == X_TRUN) ? 'X' : 'O'));
+		statusLabel.setText(String.format("It's %c turn.", (current == X_TURN) ? 'X' : 'O'));
 	}
 
 	private void populateLayout() {
@@ -117,7 +117,7 @@ public class XOGame extends Application {
 		emptyPane();
 		buttonsHBox.setVisible(false);
 		layout.setDisable(false);
-		statusLabel.setText(String.format("It's %c turn.", (current == X_TRUN) ? 'X' : 'O'));
+		statusLabel.setText(String.format("It's %c turn.", (current == X_TURN) ? 'X' : 'O'));
 	}
 
 	private void emptyPane() {
@@ -166,7 +166,7 @@ public class XOGame extends Application {
 
 	private void displayGameResult(String status) {
 		layout.setDisable(true);
-		String resultText = (status.equals("win")) ? String.format("%c has won!!", (current == X_TRUN) ? 'X' : 'O')
+		String resultText = (status.equals("win")) ? String.format("%c has won!!", (current == X_TURN) ? 'X' : 'O')
 				: "Draw :/";
 		statusLabel.setText(resultText);
 	}
