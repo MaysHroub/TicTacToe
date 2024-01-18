@@ -17,7 +17,7 @@ public class XOGame extends Application {
 	private static final String X_LABEL = "X", O_LABEL = "O";
 	private static final int X_TURN = 0; // O_TURN = 1;
 	private static final int MASK = 1;
-	private static final int WIDTH = 400, HEIGHT = 400;
+	private static final int WIDTH = 400, HEIGHT = 500;
 	private static final int N = 3;
 
 	private int current = X_TURN;
